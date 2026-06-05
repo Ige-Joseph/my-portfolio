@@ -1,0 +1,48 @@
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 100px;
+}
+
+.theme-toggle__track {
+  width: 44px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-subtle);
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.theme-toggle--light .theme-toggle__track {
+  background: rgba(0, 168, 101, 0.1);
+  border-color: rgba(0, 168, 101, 0.3);
+}
+
+.theme-toggle__thumb {
+  width: 18px;
+  height: 18px;
+  background: var(--accent-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #07070d;
+  transform: translateX(0);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.3s ease;
+  flex-shrink: 0;
+}
+
+.theme-toggle--light .theme-toggle__thumb {
+  transform: translateX(20px);
+}
+
+.theme-toggle:hover .theme-toggle__thumb {
+  box-shadow: 0 0 10px rgba(79, 255, 176, 0.5);
+}

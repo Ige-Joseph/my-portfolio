@@ -1,0 +1,225 @@
+.experience__header {
+  margin-bottom: 60px;
+}
+
+.experience__timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 800px;
+}
+
+.exp-item {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+/* Line / dot */
+.exp-item__line {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 32px;
+}
+
+.exp-item__dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--border-subtle);
+  border: 2px solid var(--bg-secondary);
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+.exp-item__dot--current {
+  background: var(--accent-primary);
+  box-shadow: 0 0 12px rgba(79, 255, 176, 0.5);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.exp-item__connector {
+  width: 1px;
+  flex: 1;
+  min-height: 40px;
+  background: linear-gradient(to bottom, var(--border-subtle), transparent);
+  margin-top: 8px;
+}
+
+/* Card */
+.exp-item__content {
+  padding: 32px;
+  margin-bottom: 24px;
+}
+
+.exp-item__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.exp-item__role {
+  font-family: var(--font-display);
+  font-size: clamp(18px, 2.5vw, 22px);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+  letter-spacing: -0.02em;
+}
+
+.exp-item__company-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.exp-item__company {
+  font-size: 14px;
+  color: var(--accent-primary);
+  font-family: var(--font-display);
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+a.exp-item__company:hover {
+  opacity: 0.7;
+}
+
+.exp-item__type-badge {
+  font-size: 10px;
+  padding: 3px 10px;
+  background: rgba(123, 97, 255, 0.1);
+  border: 1px solid rgba(123, 97, 255, 0.2);
+  color: var(--accent-secondary);
+  border-radius: 100px;
+  letter-spacing: 0.06em;
+  font-weight: 500;
+}
+
+.exp-item__meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.exp-item__period {
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  white-space: nowrap;
+}
+
+.exp-item__location {
+  font-size: 11px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.exp-item__description {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.exp-item__achievements {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.exp-item__achievements li {
+  display: flex;
+  gap: 12px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.exp-item__check {
+  color: var(--accent-primary);
+  font-size: 12px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.exp-item__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .exp-item {
+    grid-template-columns: 20px 1fr;
+    gap: 16px;
+  }
+
+  .exp-item__content {
+    padding: 24px;
+  }
+
+  .exp-item__header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .exp-item__meta {
+    align-items: flex-start;
+  }
+}
+
+.exp-item__current-badge {
+  font-size: 9px;
+  padding: 2px 8px;
+  background: rgba(79, 255, 176, 0.1);
+  border: 1px solid rgba(79, 255, 176, 0.25);
+  color: var(--accent-primary);
+  border-radius: 100px;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* Achievement badge — earned, grounded, never flashy */
+.exp-item__header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.exp-item__achievement-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 12px;
+  background: rgba(79, 255, 176, 0.06);
+  border: 1px solid rgba(79, 255, 176, 0.18);
+  border-radius: 100px;
+  font-size: 11px;
+  color: var(--accent-primary);
+  font-family: var(--font-body);
+  width: fit-content;
+  margin-top: 2px;
+  letter-spacing: 0.02em;
+}
+
+.exp-item__achievement-icon {
+  font-size: 7px;
+  opacity: 0.7;
+}
+
+[data-theme="light"] .exp-item__achievement-badge {
+  background: rgba(0, 168, 101, 0.06);
+  border-color: rgba(0, 168, 101, 0.2);
+}
