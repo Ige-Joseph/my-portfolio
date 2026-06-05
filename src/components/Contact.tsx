@@ -153,6 +153,14 @@ function ContactForm() {
     if (Object.keys(errs).length > 0) return;
 
     setStatus('submitting');
+    
+    // ADD THIS TEMPORARILY
+    // console.log({
+    //   action: FORM_ACTION,
+    //   name: FIELD_NAME,
+    //   email: FIELD_EMAIL,
+    //   message: FIELD_MESSAGE,
+    // });
 
     try {
       const body = new FormData();
