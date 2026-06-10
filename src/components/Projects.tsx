@@ -57,18 +57,23 @@ function ProjectCard({ project, featured = false }: { project: Project; featured
           </span>
           <span className="project-card__year">{project.year}</span>
         </div>
-        <div className="project-card__links">
-          {project.links.github && (
-            <a href={project.links.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-              <GitHubIcon />
-            </a>
-          )}
-          {project.links.live && (
-            <a href={project.links.live} target="_blank" rel="noopener noreferrer" aria-label="Live">
-              <ExternalIcon />
-            </a>
-          )}
-        </div>
+          <div className="project-card__links">
+            {project.links.github && (
+              <a href={project.links.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="project-card__icon-btn">
+                <GitHubIcon />
+              </a>
+            )}
+            {project.links.live && project.links.live !== 'private' && (
+              <a href={project.links.live} target="_blank" rel="noopener noreferrer" className="project-card__demo-btn">
+                View Demo ↗
+              </a>
+            )}
+            {project.links.live === 'private' && (
+              <span className="project-card__private-badge">
+                Live · Private
+              </span>
+            )}
+          </div>
       </div>
 
       <div className="project-card__body">

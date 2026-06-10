@@ -18,7 +18,7 @@ export const socials: Social[] = [
   {
     id: 'github',
     label: 'GitHub',
-    url: 'https://github.com/josephige', // 🔁 Replace
+    url: 'https://github.com/Ige-Joseph',
     icon: 'github',
     showInNav: true,
     showInFooter: true,
@@ -27,7 +27,7 @@ export const socials: Social[] = [
   {
     id: 'linkedin',
     label: 'LinkedIn',
-    url: 'https://linkedin.com/in/josephige', // 🔁 Replace
+    url: 'https://www.linkedin.com/in/ige-joseph',
     icon: 'linkedin',
     showInNav: true,
     showInFooter: true,
@@ -36,7 +36,7 @@ export const socials: Social[] = [
   {
     id: 'twitter',
     label: 'Twitter / X',
-    url: 'https://twitter.com/josephige', // 🔁 Replace or remove
+    url: 'https://twitter.com/josephige',
     icon: 'twitter',
     showInNav: false,
     showInFooter: true,

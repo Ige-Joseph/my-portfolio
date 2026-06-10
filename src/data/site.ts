@@ -15,23 +15,21 @@ export const site = {
   availabilityNote: 'Open to full-time & contract roles',
 
   // === CONTACT ===
-  email: 'joseph.allige@example.com',         // 🔁 Replace
-  cvUrl: '/Joseph_Ige_CV.pdf',            // 🔁 Place CV in /public/ — update filename
+  email: 'joseph.allige@gmail.com',
+  cvUrl: '/Joseph_Ige_CV.pdf',
 
   // === SOCIAL ===
-  github: 'https://github.com/Ige-Joseph',       // 🔁 Replace
-  linkedin: 'https://linkedin.com/in/josephige', // 🔁 Replace
-  twitter: 'https://twitter.com/josephige',      // 🔁 Replace (optional)
+  github: 'https://github.com/Ige-Joseph',
+  linkedin: 'https://www.linkedin.com/in/ige-joseph',
+  twitter: 'https://twitter.com/josephige',
 
   // === GOOGLE FORM ===
-  // 🔁 Replace with your Google Form embed src URL
-  // How: Google Forms → Send → </> Embed → copy src="..." value
   googleFormUrl:
-    'https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?embedded=true',
+    'https://docs.google.com/forms/d/e/1FAIpQLSe2s4p11bxD9smadgoMw78U7FYyedn_CFYVh3PKlqYMx7tQ9w/formResponse',
 
   // === SEO ===
   ogImage: '/og-image.png',
-  siteUrl: 'https://josephige.dev', // 🔁 Replace
+  siteUrl: 'https://my-portfolio-pied-nu-81.vercel.app',
 
   footerNote: 'Designed & built with precision.',
 };

@@ -42,7 +42,8 @@ export const projects: Project[] = [
     status: 'Production',
     featured: true,
     links: {
-      github: 'https://github.com/josephige/officesuitex-payments', // 🔁 Update
+      github: 'https://github.com/Ige-Joseph/officeSuiteX',
+      live: 'https://officesuitex.com',
     },
     highlights: [
       'Credit-based billing — users purchase credits consumed across the platform',
@@ -70,7 +71,8 @@ export const projects: Project[] = [
     status: 'Production',
     featured: true,
     links: {
-      github: 'https://github.com/josephige/officesuitex-core', // 🔁 Update
+      github: 'https://github.com/Ige-Joseph/officeSuiteX',
+      live: 'https://officesuitex.com',
     },
     highlights: [
       '8+ conversion pipelines across document, image, audio, and video formats',
@@ -97,10 +99,11 @@ export const projects: Project[] = [
     status: 'In Progress',
     featured: true,
     links: {
-      github: 'https://github.com/josephige/vitals', // 🔁 Update
+      github: 'https://github.com/Ige-Joseph/knowledge-board-api',
+      live: 'private', // we'll handle this as a special case in the component
     },
     highlights: [
-      'Shared care model — family members or carers can access and contribute to a user\'s health profile',
+      "Shared care model — family members or carers can access and contribute to a user's health profile",
       'Tracks mood, cravings, and health habits with time-series data for trend analysis',
       'Reminder engine supports recurring schedules with full timezone awareness',
       'Push-first notification strategy with fallback to ensure delivery across device types',
@@ -119,12 +122,12 @@ export const projects: Project[] = [
     subtitle: 'Personal Project · Operational Document Delivery System',
     context: 'Personal',
     description:
-      'A browser-based portal for medical report delivery. Companies and factories log in to access their staff\'s test results — grouped by organisation, searchable by patient name, with each result opening directly in an embedded PDF viewer. Reports are stored and delivered through Cloudinary, so the whole workflow from login to download happens in the browser without any back-and-forth file transfers.',
+      "A browser-based portal for medical report delivery. Companies and factories log in to access their staff's test results — grouped by organisation, searchable by patient name, with each result opening directly in an embedded PDF viewer. Reports are stored and delivered through Cloudinary, so the whole workflow from login to download happens in the browser without any back-and-forth file transfers.",
     tags: ['Django', 'Cloudinary', 'PDF Viewer', 'PostgreSQL', 'Authentication', 'Search'],
     status: 'Production',
     featured: true,
     links: {
-      github: 'https://github.com/josephige/medical-results-portal', // 🔁 Update
+      github: 'https://github.com/Ige-Joseph',
     },
     highlights: [
       'Organisation-scoped access — each company sees only its own factory groups and patient records',
