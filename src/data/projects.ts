@@ -8,12 +8,16 @@ export type ProjectContext = 'Personal' | 'Talenvo' | 'Contract';
 export interface SystemFlow {
   nodes: string[];
   label?: string;
+  /** Plain-English reading of the diagram, for non-technical readers. */
+  plain?: string;
 }
 
 export interface Project {
   id: string;
   title: string;
   subtitle: string;
+  /** One jargon-free sentence: what this is and who it's for. */
+  plainSummary: string;
   context: ProjectContext;
   description: string;
   tags: string[];
@@ -33,6 +37,8 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: 'officesuitex-payments',
+    plainSummary:
+      "Users buy credits and spend them across the platform. This is the system that takes their money in, and keeps every balance correct even when part of it goes down.",
     title: 'OfficeSuiteX — Payment Gateway',
     subtitle: 'Personal Project · Distributed Payment Infrastructure',
     context: 'Personal',
@@ -58,10 +64,14 @@ export const projects: Project[] = [
     systemFlow: {
       nodes: ['Payment Provider', 'Gateway API', 'RabbitMQ', 'Consumer', 'Wallet Service'],
       label: 'Payment Flow',
+      plain:
+        "Money arrives from Paystack or OPay, gets recorded, then waits safely in a queue until a separate service updates the balance — so a payment is never lost if one part fails.",
     },
   },
   {
     id: 'officesuitex-core',
+    plainSummary:
+      "Converts documents, images, audio and video between formats — each type running in its own isolated lane, so a failed video job never breaks a document conversion.",
     title: 'OfficeSuiteX — File Conversion Platform',
     subtitle: 'Personal Project · Scalable File Processing Infrastructure',
     context: 'Personal',
@@ -86,10 +96,14 @@ export const projects: Project[] = [
     systemFlow: {
       nodes: ['Upload', 'Job Queue', 'Celery Worker', 'Docker / FFmpeg', 'Output'],
       label: 'Conversion Flow',
+      plain:
+        "You upload a file, it joins a queue, a worker picks it up and converts it inside a sealed container, and the finished file comes back.",
     },
   },
   {
     id: 'vitals-health-companion',
+    plainSummary:
+      "A health app that patients and their carers share — tracking mood, cravings and habits together, with reminders that arrive on time wherever in the world you are.",
     title: 'Vitals',
     subtitle: 'Talenvo · Unified Health Companion App',
     context: 'Talenvo',
@@ -114,10 +128,14 @@ export const projects: Project[] = [
     systemFlow: {
       nodes: ['Client', 'API', 'Care Engine', 'Reminder Queue', 'Push Service'],
       label: 'Notification Flow',
+      plain:
+        "The app calls the API, which works out who needs reminding and when, then queues the reminder so the notification actually reaches the phone.",
     },
   },
   {
     id: 'medical-results-portal',
+    plainSummary:
+      "A private portal where companies collect their staff's medical test results — search by name, read the report in the browser, download it if it's needed on paper.",
     title: 'Medical Results Portal',
     subtitle: 'Personal Project · Operational Document Delivery System',
     context: 'Personal',
@@ -142,6 +160,8 @@ export const projects: Project[] = [
     systemFlow: {
       nodes: ['Company Login', 'Factory Results', 'Patient Search', 'PDF Viewer', 'Download'],
       label: 'Access Workflow',
+      plain:
+        "A company signs in, sees only its own results, searches for a patient, and opens that report straight in the browser.",
     },
   },
   // ➕ Add more projects below

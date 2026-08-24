@@ -1,0 +1,23 @@
+/* ============================================================
+   BLUEPRINT BACKGROUND — one fixed composited layer
+   ============================================================ */
+
+.blueprint {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  /* Fades out toward the foot so the footer stays clean */
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 70%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 70%, transparent 100%);
+}
+
+/* Content sits above the grid */
+.navbar,
+main,
+footer {
+  position: relative;
+  z-index: 1;
+}

@@ -5,73 +5,83 @@ export default function Experience() {
   return (
     <section className="experience section" id="experience">
       <div className="container">
-        <div className="experience__header">
-          <p className="section-label">Experience</p>
-          <h2 className="section-title">Where I've built</h2>
-          <p className="section-subtitle">
-            Architecture decisions, systems shipped, and engineering problems solved.
-          </p>
+
+        <div className="section-head" data-reveal>
+          <span className="section-num">04</span>
+          <span className="section-label">Experience</span>
+          <h2 className="section-title">Where I&rsquo;ve built</h2>
         </div>
 
-        <div className="experience__timeline">
-          {experiences.map((exp, i) => (
-            <div key={exp.id} className="exp-item">
-              <div className="exp-item__line">
-                <div className={`exp-item__dot ${exp.current ? 'exp-item__dot--current' : ''}`} />
-                {i < experiences.length - 1 && <div className="exp-item__connector" />}
+        <p className="section-subtitle experience__intro">
+          Architecture decisions, systems shipped, and engineering problems solved.
+        </p>
+
+        <div className="experience__list">
+          {experiences.map((exp) => (
+            <article key={exp.id} className="exp doc-grid" data-reveal>
+
+              {/* Margin: period and engagement type */}
+              <div className="doc-margin exp__margin">
+                <span className="exp__period">{exp.period}</span>
+                <span>{exp.type}</span>
+                <span className="exp__location">{exp.location}</span>
               </div>
 
-              <div className="exp-item__content glass-card">
-                <div className="exp-item__header">
-                  <div className="exp-item__header-left">
-                    <h3 className="exp-item__role">{exp.role}</h3>
-                    <div className="exp-item__company-row">
+              <div className="exp__content">
+
+                <header className="exp__head">
+                  <div>
+                    <h3 className="exp__role">{exp.role}</h3>
+                    <div className="exp__company-row">
                       {exp.companyUrl ? (
-                        <a href={exp.companyUrl} target="_blank" rel="noopener noreferrer" className="exp-item__company">
+                        <a href={exp.companyUrl} target="_blank" rel="noopener noreferrer"
+                           className="exp__company exp__company--link">
                           {exp.company}
                         </a>
                       ) : (
-                        <span className="exp-item__company">{exp.company}</span>
+                        <span className="exp__company">{exp.company}</span>
                       )}
-                      <span className="exp-item__type-badge">{exp.type}</span>
-                      {exp.current && <span className="exp-item__current-badge">Active</span>}
+                      {exp.current && (
+                        <span className="status status--live">Active</span>
+                      )}
                     </div>
-
-                    {/* Achievement badge — subtle, earned, professional */}
-                    {exp.badge && (
-                      <div className="exp-item__achievement-badge">
-                        <span className="exp-item__achievement-icon">◆</span>
-                        <span>{exp.badge}</span>
-                      </div>
-                    )}
                   </div>
+                </header>
 
-                  <div className="exp-item__meta">
-                    <span className="exp-item__period">{exp.period}</span>
-                    <span className="exp-item__location">{exp.location}</span>
+                {exp.badge && (
+                  <p className="exp__badge">
+                    <span className="exp__badge-mark" aria-hidden="true">◆</span>
+                    {exp.badge}
+                  </p>
+                )}
+
+                <p className="exp__desc">{exp.description}</p>
+
+                {exp.achievements.length > 0 && (
+                  <div className="exp__notes">
+                    <p className="meta exp__notes-label">Selected contributions</p>
+                    <ul className="exp__note-list">
+                      {exp.achievements.map((a, j) => (
+                        <li key={j} className="exp__note">
+                          <span className="exp__note-num">{String(j + 1).padStart(2, '0')}</span>
+                          <span>{a}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                </div>
+                )}
 
-                <p className="exp-item__description">{exp.description}</p>
-
-                <ul className="exp-item__achievements">
-                  {exp.achievements.map((a, j) => (
-                    <li key={j}>
-                      <span className="exp-item__check">→</span>
-                      {a}
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="exp-item__tags">
+                <div className="tag-list exp__tags">
                   {exp.tags.map((tag) => (
                     <span key={tag} className="tag">{tag}</span>
                   ))}
                 </div>
+
               </div>
-            </div>
+            </article>
           ))}
         </div>
+
       </div>
     </section>
   );
