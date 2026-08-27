@@ -44,14 +44,16 @@
   --rule: rgba(234, 231, 224, 0.14);
   --rule-strong: rgba(234, 231, 224, 0.28);
 
-  /* Signal vermilion — annotation ink, like red pen on a spec */
-  --accent: #ff5c33;
-  --accent-quiet: rgba(255, 92, 51, 0.14);
-  --accent-text: #ff7a57;
+  /* Signal green — phosphor on a dark terminal, the annotation
+     ink of this document. One accent, used sparingly. */
+  --accent: #2ee07a;
+  --accent-quiet: rgba(46, 224, 122, 0.14);
+  --accent-text: #57e9a0;
   --accent-contrast: #12110f;
 
-  /* Status colours — desaturated, documentary */
-  --status-live: #6fbf8b;
+  /* Status colours — desaturated, documentary. Live reads teal so
+     it stays subordinate to the signal green above. */
+  --status-live: #52b9a6;
   --status-progress: #d9a441;
   --status-archived: #6b675f;
 }
@@ -69,12 +71,14 @@
   --rule: rgba(22, 21, 15, 0.16);
   --rule-strong: rgba(22, 21, 15, 0.34);
 
-  --accent: #d93d13;
-  --accent-quiet: rgba(217, 61, 19, 0.09);
-  --accent-text: #c23508;
+  /* Deep green — same signal, weighted for paper. Light needs a
+     far darker green than dark does to hold contrast. */
+  --accent: #0c8449;
+  --accent-quiet: rgba(12, 132, 73, 0.09);
+  --accent-text: #0a6e3d;
   --accent-contrast: #ffffff;
 
-  --status-live: #2f7d4f;
+  --status-live: #1f7a6c;
   --status-progress: #a06f0a;
   --status-archived: #8b877d;
 }

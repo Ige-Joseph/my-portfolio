@@ -49,8 +49,8 @@ export default function BlueprintBackground({ theme }: Props) {
 
     const palette = () =>
       theme === 'light'
-        ? { minor: 'rgba(22,21,15,0.045)', major: 'rgba(22,21,15,0.085)', tick: 'rgba(217,61,19,0.16)' }
-        : { minor: 'rgba(234,231,224,0.030)', major: 'rgba(234,231,224,0.060)', tick: 'rgba(255,92,51,0.16)' };
+        ? { minor: 'rgba(22,21,15,0.045)', major: 'rgba(22,21,15,0.085)', tick: 'rgba(12,132,73,0.16)' }
+        : { minor: 'rgba(234,231,224,0.030)', major: 'rgba(234,231,224,0.060)', tick: 'rgba(46,224,122,0.16)' };
 
     const draw = (time: number) => {
       const { minor, major, tick } = palette();
