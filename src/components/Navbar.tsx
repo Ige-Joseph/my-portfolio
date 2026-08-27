@@ -11,21 +11,56 @@ interface NavbarProps {
 
 const navLinks = [
   { label: 'About', href: '#about' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Skills', href: '#skills' },
+  { label: 'Work', href: '#projects' },
+  { label: 'Capabilities', href: '#skills' },
   { label: 'Experience', href: '#experience' },
   { label: 'Contact', href: '#contact' },
 ];
 
 export default function Navbar({ theme, onThemeToggle }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
+  const [progress, setProgress] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
 
+  // Scroll state + read position, in one passive listener
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 40);
+    const handleScroll = () => {
+      const y = window.scrollY;
+      setScrolled(y > 40);
+      const span = document.documentElement.scrollHeight - window.innerHeight;
+      setProgress(span > 0 ? Math.min(Math.max(y / span, 0), 1) : 0);
+    };
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
+  }, []);
+
+  // Scroll spy — the active link follows the section you're reading,
+  // not just the last one you clicked.
+  useEffect(() => {
+    const sections = navLinks
+      .map((l) => document.getElementById(l.href.slice(1)))
+      .filter((el): el is HTMLElement => el !== null);
+    if (sections.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const inView = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (inView) setActiveSection(`#${inView.target.id}`);
+      },
+      // Only the section crossing the middle band of the viewport counts
+      { rootMargin: '-45% 0px -45% 0px', threshold: 0 }
+    );
+
+    sections.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
@@ -97,6 +132,13 @@ export default function Navbar({ theme, onThemeToggle }: NavbarProps) {
           </button>
         </div>
       </div>
+
+      {/* Read position, drawn as a rule along the header's own edge */}
+      <span
+        className="navbar__progress"
+        style={{ transform: `scaleX(${progress})` }}
+        aria-hidden="true"
+      />
 
       <div className={`navbar__mobile-menu ${menuOpen ? 'navbar__mobile-menu--open' : ''}`}>
         <nav className="navbar__mobile-links">

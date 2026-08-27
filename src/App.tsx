@@ -1,6 +1,9 @@
 import { useTheme } from './hooks/useTheme';
+import { useScrollReveal } from './hooks/useScrollReveal';
+import BlueprintBackground from './components/BlueprintBackground';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import Contents from './components/Contents';
 import About from './components/About';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
@@ -10,17 +13,17 @@ import Footer from './components/Footer';
 
 export default function App() {
   const { theme, toggle } = useTheme();
+  useScrollReveal();
 
   return (
     <>
-      <div className="bg-orb bg-orb-1" aria-hidden="true" />
-      <div className="bg-orb bg-orb-2" aria-hidden="true" />
-      <div className="bg-orb bg-orb-3" aria-hidden="true" />
+      <BlueprintBackground theme={theme} />
 
       <Navbar theme={theme} onThemeToggle={toggle} />
 
       <main>
         <Hero />
+        <Contents />
         <About />
         <Projects />
         <Skills />

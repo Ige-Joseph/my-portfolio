@@ -4,8 +4,8 @@ import './Footer.css';
 
 const navLinks = [
   { label: 'About', href: '#about' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Skills', href: '#skills' },
+  { label: 'Selected work', href: '#projects' },
+  { label: 'Capabilities', href: '#skills' },
   { label: 'Experience', href: '#experience' },
   { label: 'Contact', href: '#contact' },
 ];
@@ -15,47 +15,52 @@ export default function Footer() {
 
   return (
     <footer className="footer">
-      <div className="footer__divider" />
       <div className="container">
+
         <div className="footer__inner">
-          <div className="footer__left">
-            <a href="#" className="footer__logo">
-              <span className="footer__logo-mark">J</span>
-              <span>{site.name}</span>
-            </a>
+
+          <div className="footer__identity">
+            <a href="#hero" className="footer__name">{site.name}</a>
             <p className="footer__tagline">{site.tagline}</p>
-            <p className="footer__copy">
-              © {new Date().getFullYear()} {site.name}. {site.footerNote}
-            </p>
           </div>
 
-          <nav className="footer__nav">
-            <p className="footer__nav-label">Navigation</p>
-            {navLinks.map((l) => (
-              <a key={l.href} href={l.href} className="footer__nav-link">
+          <nav className="footer__col" aria-label="Footer navigation">
+            <p className="meta footer__col-label">Contents</p>
+            {navLinks.map((l, i) => (
+              <a key={l.href} href={l.href} className="footer__link">
+                <span className="footer__link-num">{String(i + 1).padStart(2, '0')}</span>
                 {l.label}
               </a>
             ))}
           </nav>
 
-          <div className="footer__socials-col">
-            <p className="footer__nav-label">Connect</p>
+          <div className="footer__col">
+            <p className="meta footer__col-label">Connect</p>
             {footerSocials.map((s) => (
-              <a
-                key={s.id}
-                href={s.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="footer__nav-link"
-              >
+              <a key={s.id} href={s.url} target="_blank" rel="noopener noreferrer"
+                 className="footer__link">
                 {s.label}
+                <span className="footer__link-mark" aria-hidden="true">↗</span>
               </a>
             ))}
-            <a href={site.cvUrl} download className="footer__nav-link footer__cv-link">
-              Download CV ↓
+            <a href={site.cvUrl} download className="footer__link footer__link--accent">
+              Curriculum vitae
+              <span className="footer__link-mark" aria-hidden="true">↓</span>
             </a>
           </div>
+
         </div>
+
+        {/* Colophon */}
+        <div className="footer__colophon">
+          <p className="meta">
+            © {new Date().getFullYear()} {site.name} · {site.footerNote}
+          </p>
+          <p className="meta footer__typefaces">
+            Set in Archivo, DM&nbsp;Mono &amp; Instrument&nbsp;Serif
+          </p>
+        </div>
+
       </div>
     </footer>
   );

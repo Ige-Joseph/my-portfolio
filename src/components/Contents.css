@@ -1,0 +1,125 @@
+/* ============================================================
+   CONTENTS — table of contents between the title page and §01
+   Leader rules, not dot leaders. Rows are the navigation.
+   ============================================================ */
+
+.contents {
+  padding-top: clamp(28px, 4vw, 44px);
+  padding-bottom: clamp(28px, 4vw, 44px);
+}
+
+.contents__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+
+.contents__count { color: var(--text-muted); }
+
+.contents__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.contents__row {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 2vw, 22px);
+  padding: 14px 0;
+  border-bottom: var(--rule-hair) solid var(--rule);
+  transition: border-color 0.22s ease;
+}
+
+.contents__num {
+  flex: 0 0 auto;
+  width: 26px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  transition: color 0.22s ease;
+}
+
+.contents__label {
+  flex: 0 0 auto;
+  min-width: clamp(120px, 16vw, 190px);
+  font-family: var(--font-sans);
+  font-size: clamp(17px, 2vw, 22px);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  color: var(--text-primary);
+  transition: transform 0.28s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.contents__desc {
+  flex: 0 1 auto;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.03em;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.22s ease;
+}
+
+/* The leader — a hairline running to the mark, the way a
+   contents page runs dots. A rule reads better here. */
+.contents__leader {
+  flex: 1 1 auto;
+  min-width: 20px;
+  height: var(--rule-hair);
+  background: var(--rule);
+  transition: background-color 0.22s ease;
+}
+
+.contents__mark {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  color: var(--text-muted);
+  opacity: 0;
+  transform: translateX(-8px);
+  transition:
+    opacity 0.28s ease,
+    transform 0.28s cubic-bezier(0.2, 0.7, 0.2, 1),
+    color 0.22s ease;
+}
+
+/* ---- Hover: the row wakes up ------------------------------- */
+
+.contents__row:hover { border-bottom-color: var(--rule-strong); }
+.contents__row:hover .contents__num { color: var(--accent); }
+.contents__row:hover .contents__label { transform: translateX(6px); }
+.contents__row:hover .contents__desc { color: var(--text-secondary); }
+.contents__row:hover .contents__leader { background: var(--accent); }
+.contents__row:hover .contents__mark {
+  opacity: 1;
+  transform: translateX(0);
+  color: var(--accent);
+}
+
+.contents__row:focus-visible {
+  outline: var(--rule-hair) solid var(--accent);
+  outline-offset: 4px;
+}
+
+/* ---- Responsive -------------------------------------------- */
+
+@media (max-width: 720px) {
+  .contents__desc,
+  .contents__leader { display: none; }
+
+  .contents__row { justify-content: space-between; padding: 13px 0; }
+  .contents__label { min-width: 0; flex: 1 1 auto; }
+  .contents__mark { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contents__label,
+  .contents__mark { transition: none; }
+  .contents__row:hover .contents__label { transform: none; }
+}

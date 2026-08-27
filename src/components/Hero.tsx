@@ -1,115 +1,144 @@
 import { site } from '../data/site';
 import './Hero.css';
 
-const metrics = [
-  {
-    value: '8+',
-    label: 'File conversion systems built',
-    sub: 'Personal',
-    icon: '⚙️',
-  },
-  {
-    value: 'Payment\n& health',
-    label: 'Platforms engineered',
-    sub: 'End-to-end',
-    icon: '🏗️',
-  },
-  {
-    value: 'Architecture-\nled',
-    label: 'Backend systems',
-    sub: 'Distributed',
-    icon: '⚡',
-  },
-  {
-    value: 'End-to-end',
-    label: 'Technical ownership',
-    sub: 'Full stack',
-    icon: '📐',
-  },
+// ============================================================
+// SPECIFICATION TABLE
+// Verifiable facts only — no invented metrics, no emoji.
+// Reads as the header block of an engineering document.
+// ============================================================
+
+const spec: { label: string; value: string }[] = [
+  { label: 'Discipline', value: 'Async Systems & Payment Infrastructure' },
+  { label: 'Most recent', value: 'Backend Engineer — Talenvo Residency' },
+  { label: 'Domains', value: 'Payments · Health · File processing' },
+  { label: 'Core stack', value: 'Python · FastAPI · Django · Node.js · RabbitMQ / BullMQ · Postgres' },
+  { label: 'Based', value: 'Lagos, Nigeria · Remote' },
 ];
+
+const requestPath = ['Client', 'Gateway', 'Queue', 'Worker', 'Database'];
 
 export default function Hero() {
   return (
     <section className="hero" id="hero">
-      <div className="hero__inner container">
+      <div className="container">
 
-        <div className="hero__badge">
-          <span className="hero__badge-dot" />
-          <span>{site.availabilityNote}</span>
-        </div>
-
-        <div className="hero__heading-wrap">
-          <div className="hero__heading-line">
-            <h1 className="hero__name">{site.name}</h1>
+        {/* ---- Masthead ---- */}
+        <header className="hero__masthead">
+          <h1 className="hero__name" data-reveal="mask">
+            Joseph<span className="hero__name-break"> </span>Ige
+          </h1>
+          <div className="hero__masthead-meta" data-reveal style={{ '--r': 3 } as React.CSSProperties}>
+            <span className="meta">Backend Engineer</span>
+            <span className="hero__masthead-sep" aria-hidden="true" />
+            <span className="meta">{site.location}</span>
           </div>
-          <div className="hero__heading-line hero__heading-line--indent">
-            <span className="hero__serif">—</span>
-            <span className="hero__role">Product Engineer</span>
-          </div>
-        </div>
+        </header>
 
-        <p className="hero__tagline">
-          I build the systems that make products reliable.
-          <span className="hero__tagline-sub">Backend depth. Product thinking. End-to-end ownership.</span>
-        </p>
+        <div className="rule rule--heavy hero__masthead-rule" data-reveal="rule" />
 
-        <p className="hero__description">
-          When a product works smoothly — payments go through, files convert, notifications arrive on time —
-          it's rarely an accident. I design and build the{' '}
-          <span className="hero__highlight">backend infrastructure</span> and{' '}
-          <span className="hero__highlight">distributed systems</span> that make that reliability possible,
-          so users never have to think about what's running underneath.
-        </p>
+        {/* ---- Statement + specification ---- */}
+        <div className="hero__body">
 
-        <div className="hero__ctas">
-          <a href="#projects" className="btn-primary">
-            View my work
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </a>
-          <a href={site.cvUrl} download className="btn-outline">
-            Download CV
-          </a>
-        </div>
-
-        {/* Metric cards */}
-        <div className="hero__metrics">
-          {metrics.map((m) => (
-            <div key={m.label} className="hero__metric-card">
-              <span className="hero__metric-icon">{m.icon}</span>
-              <div className="hero__metric-value">{m.value}</div>
-              <div className="hero__metric-label">{m.label}</div>
-              <div className="hero__metric-sub">{m.sub}</div>
+          {/* ---- Plate: the portrait, mounted like a document plate ---- */}
+          <figure className="hero__plate" data-reveal style={{ '--r': 4 } as React.CSSProperties}>
+            <div className="hero__plate-mount">
+              <div className="hero__plate-frame">
+                <img
+                  className="hero__plate-img"
+                  src="/joseph.jpg"
+                  alt="Joseph Ige"
+                  width={460}
+                  height={460}
+                />
+              </div>
+              <span className="hero__plate-marks" aria-hidden="true" />
             </div>
-          ))}
+          </figure>
+
+          <div className="hero__lead">
+            <p className="hero__statement" data-reveal style={{ '--r': 4 } as React.CSSProperties}>
+              I build the systems that make products{' '}
+              <em>reliable</em>.
+            </p>
+
+            <p className="hero__prose" data-reveal style={{ '--r': 5 } as React.CSSProperties}>
+              When a product works smoothly — payments go through, files convert,
+              notifications arrive on time — it&rsquo;s rarely an accident. I design and
+              build the backend infrastructure and async systems that make that
+              reliability possible, so users never have to think about what&rsquo;s
+              running underneath.
+            </p>
+
+            <div className="hero__actions" data-reveal style={{ '--r': 6 } as React.CSSProperties}>
+              <a href="#projects" className="btn-primary">
+                Selected work
+                <Arrow />
+              </a>
+              <a href={site.cvUrl} download className="btn-outline">
+                Curriculum vitae
+              </a>
+            </div>
+
+            {site.availableForWork && (
+              <p className="status status--live hero__availability"
+                 data-reveal style={{ '--r': 7 } as React.CSSProperties}>
+                {site.availabilityNote}
+              </p>
+            )}
+          </div>
+
+          {/* ---- Spec table ---- */}
+          <dl className="hero__spec">
+            {spec.map((row, i) => (
+              <div key={row.label} className="hero__spec-row"
+                   data-reveal style={{ '--r': 5 + i } as React.CSSProperties}>
+                <dt className="hero__spec-label">{row.label}</dt>
+                <dd className="hero__spec-value">{row.value}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
 
-        <div className="hero__location">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
-            <circle cx="12" cy="10" r="3" />
-          </svg>
-          <span>{site.location}</span>
-        </div>
+        {/* ---- Figure ---- */}
+        <figure className="hero__figure" data-reveal>
+          <figcaption className="hero__figure-caption">
+            <span className="section-num">Fig. 01</span>
+            <span className="meta">Request path — the shape of every system here</span>
+          </figcaption>
 
-        <div className="hero__system-preview">
-          <span className="hero__system-preview-label">Architecture thinking, in practice</span>
-          <div className="hero__system-flow">
-            {['Client', 'API Gateway', 'Message Queue', 'Worker', 'Database'].map((node, i, arr) => (
-              <div key={node} className="hero__flow-item">
-                <div className="hero__flow-node">{node}</div>
-                {i < arr.length - 1 && <div className="hero__flow-arrow">→</div>}
+          <div className="hero__diagram" role="img"
+               aria-label="Request path: client to gateway to queue to worker to database">
+            {requestPath.map((node, i) => (
+              <div key={node} className="hero__node-group"
+                   style={{ '--i': i } as React.CSSProperties}>
+                <span className="hero__node">
+                  <span className="hero__node-index">{String(i + 1).padStart(2, '0')}</span>
+                  {node}
+                </span>
+                {i < requestPath.length - 1 && (
+                  <span className="hero__connector" aria-hidden="true" />
+                )}
               </div>
             ))}
           </div>
-        </div>
-      </div>
 
-      <div className="hero__scroll">
-        <div className="hero__scroll-line" />
-        <span>scroll</span>
+          <p className="hero__figure-plain">
+            In plain terms: a request comes in, and is put in a queue so nothing is
+            lost if something fails. A separate worker does the slow part. The result
+            is stored. Almost everything below is a variation on this shape.
+          </p>
+        </figure>
+
       </div>
     </section>
+  );
+}
+
+function Arrow() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+         stroke="currentColor" strokeWidth="2" aria-hidden="true">
+      <path d="M5 12h14M12 5l7 7-7 7" />
+    </svg>
   );
 }
