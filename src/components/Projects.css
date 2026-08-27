@@ -157,7 +157,6 @@
   width: 4px;
   height: 4px;
   background: var(--accent);
-  border-radius: 50%;
   transform: translate(-50%, -50%);
   opacity: 0;
 }
