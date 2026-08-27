@@ -1,23 +1,8 @@
+import { about } from '../data/content';
+import { section } from '../data/navigation';
 import './About.css';
 
-// ============================================================
-// PRINCIPLES — numbered clauses, not icon cards.
-// ============================================================
-
-const principles = [
-  {
-    title: 'Reliability by design',
-    body: 'I design for failure before I design for success. Good infrastructure handles the edge cases that most architectures ignore.',
-  },
-  {
-    title: 'Product awareness',
-    body: 'Backend decisions affect the user experience in ways that aren’t always obvious. I think about the product impact of every infrastructure choice.',
-  },
-  {
-    title: 'End-to-end ownership',
-    body: 'From the first architecture diagram to the deployed container — I take responsibility for the full system, not just my part of it.',
-  },
-];
+const meta = section('about');
 
 export default function About() {
   return (
@@ -25,9 +10,9 @@ export default function About() {
       <div className="container">
 
         <div className="section-head" data-reveal>
-          <span className="section-num">01</span>
-          <span className="section-label">About</span>
-          <h2 className="section-title">Building products that work under pressure</h2>
+          <span className="section-num">{meta.num}</span>
+          <span className="section-label">{meta.label}</span>
+          <h2 className="section-title">{about.title}</h2>
         </div>
 
         {/* ---- Profile ---- */}
@@ -37,31 +22,10 @@ export default function About() {
           </div>
 
           <div className="about__bio">
-            <p className="about__lede">
-              I&rsquo;m a backend-focused product engineer based in Lagos, Nigeria. I specialise
-              in the infrastructure layer &mdash; the async systems, payment pipelines, and
-              APIs that sit behind a product and determine whether it&rsquo;s reliable or fragile.
-            </p>
-            <p>
-              I&rsquo;ve built a credit-based payment gateway that routes transactions through
-              multiple providers and keeps wallet balances consistent even when services are
-              temporarily down. I&rsquo;ve designed file conversion infrastructure where 8+
-              processing pipelines run in complete isolation, so a failed video job never slows
-              down a document conversion. And at Talenvo, I built a health companion app end to
-              end on my own, and designed a collaborative content API &mdash; both from system
-              design through to delivery.
-            </p>
-            <p>
-              What drives my work is a simple idea: the best infrastructure is the kind users
-              never think about. I design systems to be reliable by default &mdash; not as an
-              afterthought &mdash; and I think carefully about the tradeoffs that come with every
-              architecture decision.
-            </p>
-            <p>
-              I came to software from a background in agricultural science, and have since worked
-              across infrastructure, web platforms and media tooling &mdash; enough range to
-              understand a whole product rather than only my part of it.
-            </p>
+            {/* First paragraph is the document lede — set larger. */}
+            {about.bio.map((para, i) => (
+              <p key={i} className={i === 0 ? 'about__lede' : undefined}>{para}</p>
+            ))}
           </div>
         </div>
 
@@ -72,7 +36,7 @@ export default function About() {
           </div>
 
           <ol className="about__principle-list">
-            {principles.map((p, i) => (
+            {about.principles.map((p, i) => (
               <li key={p.title} className="about__principle"
                   data-reveal style={{ '--r': i } as React.CSSProperties}>
                 <span className="about__principle-num">{String(i + 1).padStart(2, '0')}</span>

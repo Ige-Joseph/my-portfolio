@@ -171,6 +171,21 @@ Your site will be live at `https://your-project.vercel.app`.
 
 All content is managed through files in `src/data/`. You never need to touch component code to update what's on screen.
 
+| File | What it controls |
+| --- | --- |
+| `site.ts` | Name, role, location, email, CV link, social URLs, SEO metadata |
+| `content.ts` | Every piece of prose: the hero statement, bio paragraphs, principles, the spec table, the two figures, and each section's title and intro |
+| `navigation.ts` | Section names, order and `01..05` numbering — the navbar, footer and Contents index all read this one file |
+| `projects.ts` | The work |
+| `experience.ts` | Roles and residencies |
+| `skills.ts` | The capability index |
+| `socials.ts` | Social links, and whether each shows in the nav or footer |
+
+Two things worth knowing:
+
+- **Write plain text, not HTML entities.** In these files use real characters — `'` for apostrophes, `—` for dashes, `·` for separators. An entity like `&rsquo;` would render literally as `&rsquo;`.
+- **Renaming a section is one edit.** Change a `label` in `navigation.ts` and the navbar, footer, and Contents index all follow. Reorder the array and the `01..05` numbering follows too.
+
 ### Edit Projects
 
 **File:** `src/data/projects.ts`

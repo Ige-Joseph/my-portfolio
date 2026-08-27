@@ -1,5 +1,9 @@
 import { projects, type Project } from '../data/projects';
+import { projectsSection } from '../data/content';
+import { section } from '../data/navigation';
 import './Projects.css';
+
+const meta = section('projects');
 
 const statusClass: Record<string, string> = {
   Production: 'status--live',
@@ -15,14 +19,13 @@ export default function Projects() {
       <div className="container">
 
         <div className="section-head" data-reveal>
-          <span className="section-num">02</span>
-          <span className="section-label">Selected work</span>
-          <h2 className="section-title">Systems I&rsquo;ve engineered</h2>
+          <span className="section-num">{meta.num}</span>
+          <span className="section-label">{meta.label}</span>
+          <h2 className="section-title">{projectsSection.title}</h2>
         </div>
 
         <p className="section-subtitle projects__intro">
-          Production backend systems, documented the way I&rsquo;d document them
-          internally — architecture first, then the decisions that made them hold up.
+          {projectsSection.intro}
         </p>
 
         <div className="projects__list">

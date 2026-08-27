@@ -1,14 +1,10 @@
 import { site } from '../data/site';
 import { socials } from '../data/socials';
+import { sections, href as sectionHref } from '../data/navigation';
 import './Footer.css';
 
-const navLinks = [
-  { label: 'About', href: '#about' },
-  { label: 'Selected work', href: '#projects' },
-  { label: 'Capabilities', href: '#skills' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Contact', href: '#contact' },
-];
+// Derived from src/data/navigation.ts — edit sections there.
+const navLinks = sections.map((s) => ({ label: s.label, href: sectionHref(s), num: s.num }));
 
 export default function Footer() {
   const footerSocials = socials.filter((s) => s.showInFooter);
@@ -26,9 +22,9 @@ export default function Footer() {
 
           <nav className="footer__col" aria-label="Footer navigation">
             <p className="meta footer__col-label">Contents</p>
-            {navLinks.map((l, i) => (
+            {navLinks.map((l) => (
               <a key={l.href} href={l.href} className="footer__link">
-                <span className="footer__link-num">{String(i + 1).padStart(2, '0')}</span>
+                <span className="footer__link-num">{l.num}</span>
                 {l.label}
               </a>
             ))}

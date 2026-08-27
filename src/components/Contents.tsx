@@ -1,3 +1,5 @@
+import { sections, href } from '../data/navigation';
+import { contents } from '../data/content';
 import './Contents.css';
 
 // ============================================================
@@ -8,35 +10,27 @@ import './Contents.css';
 // puts there. Doubles as real navigation.
 // ============================================================
 
-const entries = [
-  { num: '01', label: 'About',         desc: 'Background, principles, how I work',   href: '#about' },
-  { num: '02', label: 'Selected work', desc: 'Systems built, shipped, and running',  href: '#projects' },
-  { num: '03', label: 'Capabilities',  desc: 'Stack, tooling, and domains',          href: '#skills' },
-  { num: '04', label: 'Experience',    desc: 'Roles, residencies, and delivery',     href: '#experience' },
-  { num: '05', label: 'Contact',       desc: 'Availability and channels',            href: '#contact' },
-];
-
 export default function Contents() {
   return (
     <nav className="contents" aria-label="Contents">
       <div className="container">
 
         <div className="contents__head" data-reveal>
-          <span className="meta">Contents</span>
-          <span className="meta contents__count">{entries.length} sections</span>
+          <span className="meta">{contents.label}</span>
+          <span className="meta contents__count">{sections.length} sections</span>
         </div>
 
         <div className="rule rule--heavy" data-reveal="rule" />
 
         <ol className="contents__list">
-          {entries.map((entry, i) => (
+          {sections.map((entry, i) => (
             <li
-              key={entry.href}
+              key={entry.id}
               className="contents__item"
               data-reveal
               style={{ '--r': i + 1 } as React.CSSProperties}
             >
-              <a href={entry.href} className="contents__row">
+              <a href={href(entry)} className="contents__row">
                 <span className="contents__num">{entry.num}</span>
                 <span className="contents__label">{entry.label}</span>
                 <span className="contents__desc">{entry.desc}</span>

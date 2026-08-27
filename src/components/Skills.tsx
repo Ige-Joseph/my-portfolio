@@ -1,13 +1,9 @@
 import { skillCategories } from '../data/skills';
+import { skillsSection } from '../data/content';
+import { section } from '../data/navigation';
 import './Skills.css';
 
-const breadth = [
-  'Frontend',
-  'Docker / Infra',
-  'Product Design',
-  'CMS / Web',
-  'Architecture',
-];
+const meta = section('skills');
 
 export default function Skills() {
   return (
@@ -15,15 +11,13 @@ export default function Skills() {
       <div className="container">
 
         <div className="section-head" data-reveal>
-          <span className="section-num">03</span>
-          <span className="section-label">Capabilities</span>
-          <h2 className="section-title">Technologies &amp; systems I work with</h2>
+          <span className="section-num">{meta.num}</span>
+          <span className="section-label">{meta.label}</span>
+          <h2 className="section-title">{skillsSection.title}</h2>
         </div>
 
         <p className="section-subtitle skills__intro">
-          A T-shaped engineer &mdash; depth in backend, queueing and payment systems,
-          with enough infrastructure, web platform and tooling range to work across a
-          whole team.
+          {skillsSection.intro}
         </p>
 
         {/* ---- Capability index ---- */}
@@ -48,12 +42,12 @@ export default function Skills() {
         <figure className="skills__figure" data-reveal>
           <figcaption className="skills__figure-caption">
             <span className="section-num">Fig. 02</span>
-            <span className="meta">T-shaped profile &mdash; breadth across, depth down</span>
+            <span className="meta">{skillsSection.figure.caption}</span>
           </figcaption>
 
           <div className="tshape">
             <div className="tshape__breadth">
-              {breadth.map((b) => (
+              {skillsSection.figure.breadth.map((b) => (
                 <span key={b} className="tshape__breadth-item">{b}</span>
               ))}
             </div>
@@ -61,10 +55,8 @@ export default function Skills() {
             <div className="tshape__stem" aria-hidden="true" />
 
             <div className="tshape__depth">
-              <h3 className="tshape__depth-title">Software Engineering</h3>
-              <p className="tshape__depth-sub">
-                Async Systems &middot; Payment Infrastructure &middot; API Design
-              </p>
+              <h3 className="tshape__depth-title">{skillsSection.figure.depth.title}</h3>
+              <p className="tshape__depth-sub">{skillsSection.figure.depth.sub}</p>
             </div>
           </div>
         </figure>

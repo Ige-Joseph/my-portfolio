@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { site } from '../data/site';
 import { socials } from '../data/socials';
+import { sections, href as sectionHref } from '../data/navigation';
 import ThemeToggle from './ThemeToggle';
 import './Navbar.css';
 
@@ -9,13 +10,8 @@ interface NavbarProps {
   onThemeToggle: () => void;
 }
 
-const navLinks = [
-  { label: 'About', href: '#about' },
-  { label: 'Work', href: '#projects' },
-  { label: 'Capabilities', href: '#skills' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Contact', href: '#contact' },
-];
+// Derived from src/data/navigation.ts — edit sections there.
+const navLinks = sections.map((s) => ({ label: s.nav, href: sectionHref(s), num: s.num }));
 
 export default function Navbar({ theme, onThemeToggle }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
@@ -150,7 +146,7 @@ export default function Navbar({ theme, onThemeToggle }: NavbarProps) {
               style={{ animationDelay: `${i * 60}ms` }}
               onClick={() => handleNavClick(link.href)}
             >
-              <span className="navbar__mobile-link-num">0{i + 1}</span>
+              <span className="navbar__mobile-link-num">{link.num}</span>
               {link.label}
             </a>
           ))}

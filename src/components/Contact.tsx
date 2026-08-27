@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import { site } from '../data/site';
+import { contactSection } from '../data/content';
+import { section } from '../data/navigation';
 import './Contact.css';
+
+const meta = section('contact');
 
 // ============================================================
 // TYPES
@@ -34,14 +38,13 @@ export default function Contact() {
       <div className="container">
 
         <div className="section-head" data-reveal>
-          <span className="section-num">05</span>
-          <span className="section-label">Contact</span>
-          <h2 className="section-title">Let&rsquo;s build something worth talking about</h2>
+          <span className="section-num">{meta.num}</span>
+          <span className="section-label">{meta.label}</span>
+          <h2 className="section-title">{contactSection.title}</h2>
         </div>
 
         <p className="section-subtitle contact__intro">
-          Whether you have a queueing or payments problem, a backend to architect, or a
-          product to build &mdash; I&rsquo;d like to hear about it. I reply within 24 hours.
+          {contactSection.intro}
         </p>
 
         <div className="contact__layout">

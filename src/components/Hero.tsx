@@ -1,21 +1,10 @@
 import { site } from '../data/site';
+import { hero } from '../data/content';
 import './Hero.css';
 
 // ============================================================
-// SPECIFICATION TABLE
-// Verifiable facts only — no invented metrics, no emoji.
-// Reads as the header block of an engineering document.
+// Copy lives in src/data/content.ts — this file is layout only.
 // ============================================================
-
-const spec: { label: string; value: string }[] = [
-  { label: 'Discipline', value: 'Async Systems & Payment Infrastructure' },
-  { label: 'Most recent', value: 'Software Engineer — Talenvo Residency' },
-  { label: 'Domains', value: 'Payments · Health · File processing' },
-  { label: 'Core stack', value: 'Python · FastAPI · Django · Node.js · RabbitMQ / BullMQ · Postgres' },
-  { label: 'Based', value: 'Lagos, Nigeria · Remote' },
-];
-
-const requestPath = ['Client', 'Gateway', 'Queue', 'Worker', 'Database'];
 
 export default function Hero() {
   return (
@@ -57,25 +46,21 @@ export default function Hero() {
 
           <div className="hero__lead">
             <p className="hero__statement" data-reveal style={{ '--r': 4 } as React.CSSProperties}>
-              I build the systems that make products{' '}
-              <em>reliable</em>.
+              {hero.statement.lead}{' '}
+              <em>{hero.statement.emphasis}</em>{hero.statement.tail}
             </p>
 
             <p className="hero__prose" data-reveal style={{ '--r': 5 } as React.CSSProperties}>
-              When a product works smoothly — payments go through, files convert,
-              notifications arrive on time — it&rsquo;s rarely an accident. I design and
-              build the backend infrastructure and async systems that make that
-              reliability possible, so users never have to think about what&rsquo;s
-              running underneath.
+              {hero.prose}
             </p>
 
             <div className="hero__actions" data-reveal style={{ '--r': 6 } as React.CSSProperties}>
               <a href="#projects" className="btn-primary">
-                Selected work
+                {hero.actions.primary}
                 <Arrow />
               </a>
               <a href={site.cvUrl} download className="btn-outline">
-                Curriculum vitae
+                {hero.actions.secondary}
               </a>
             </div>
 
@@ -89,7 +74,7 @@ export default function Hero() {
 
           {/* ---- Spec table ---- */}
           <dl className="hero__spec">
-            {spec.map((row, i) => (
+            {hero.spec.map((row, i) => (
               <div key={row.label} className="hero__spec-row"
                    data-reveal style={{ '--r': 5 + i } as React.CSSProperties}>
                 <dt className="hero__spec-label">{row.label}</dt>
@@ -103,19 +88,19 @@ export default function Hero() {
         <figure className="hero__figure" data-reveal>
           <figcaption className="hero__figure-caption">
             <span className="section-num">Fig. 01</span>
-            <span className="meta">Request path — the shape of every system here</span>
+            <span className="meta">{hero.figure.caption}</span>
           </figcaption>
 
           <div className="hero__diagram" role="img"
                aria-label="Request path: client to gateway to queue to worker to database">
-            {requestPath.map((node, i) => (
+            {hero.figure.nodes.map((node, i) => (
               <div key={node} className="hero__node-group"
                    style={{ '--i': i } as React.CSSProperties}>
                 <span className="hero__node">
                   <span className="hero__node-index">{String(i + 1).padStart(2, '0')}</span>
                   {node}
                 </span>
-                {i < requestPath.length - 1 && (
+                {i < hero.figure.nodes.length - 1 && (
                   <span className="hero__connector" aria-hidden="true" />
                 )}
               </div>
@@ -123,9 +108,7 @@ export default function Hero() {
           </div>
 
           <p className="hero__figure-plain">
-            In plain terms: a request comes in, and is put in a queue so nothing is
-            lost if something fails. A separate worker does the slow part. The result
-            is stored. Almost everything below is a variation on this shape.
+            {hero.figure.plain}
           </p>
         </figure>
 

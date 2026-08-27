@@ -1,5 +1,9 @@
 import { experiences } from '../data/experience';
+import { experienceSection } from '../data/content';
+import { section } from '../data/navigation';
 import './Experience.css';
+
+const meta = section('experience');
 
 export default function Experience() {
   return (
@@ -7,13 +11,13 @@ export default function Experience() {
       <div className="container">
 
         <div className="section-head" data-reveal>
-          <span className="section-num">04</span>
-          <span className="section-label">Experience</span>
-          <h2 className="section-title">Where I&rsquo;ve built</h2>
+          <span className="section-num">{meta.num}</span>
+          <span className="section-label">{meta.label}</span>
+          <h2 className="section-title">{experienceSection.title}</h2>
         </div>
 
         <p className="section-subtitle experience__intro">
-          Architecture decisions, systems shipped, and engineering problems solved.
+          {experienceSection.intro}
         </p>
 
         <div className="experience__list">
