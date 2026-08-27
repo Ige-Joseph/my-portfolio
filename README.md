@@ -32,7 +32,7 @@ A premium, dark-themed developer portfolio built with React, TypeScript, and Vit
 
 ## Project Overview
 
-This is a fully responsive, dark-themed portfolio for **Joseph Ige**, a Backend Engineer specialising in distributed systems and payment infrastructure.
+This is a fully responsive, dark-themed portfolio for **Joseph Ige**, a Backend Engineer specialising in async systems and payment infrastructure.
 
 **Key features:**
 - Cinematic dark-mode design with glassmorphism cards and ambient glow effects

@@ -3,6 +3,7 @@ import './Projects.css';
 
 const statusClass: Record<string, string> = {
   Production: 'status--live',
+  'Live · limited users': 'status--live',
   'In Progress': 'status--progress',
   Archived: 'status--archived',
   'Open Source': 'status--live',

@@ -39,7 +39,7 @@ export default function About() {
           <div className="about__bio">
             <p className="about__lede">
               I&rsquo;m a backend-focused product engineer based in Lagos, Nigeria. I specialise
-              in the infrastructure layer &mdash; the distributed systems, payment pipelines, and
+              in the infrastructure layer &mdash; the async systems, payment pipelines, and
               APIs that sit behind a product and determine whether it&rsquo;s reliable or fragile.
             </p>
             <p>
@@ -47,9 +47,9 @@ export default function About() {
               multiple providers and keeps wallet balances consistent even when services are
               temporarily down. I&rsquo;ve designed file conversion infrastructure where 8+
               processing pipelines run in complete isolation, so a failed video job never slows
-              down a document conversion. And at Talenvo, I&rsquo;ve led backend architecture for
-              a health app and built a scalable content API &mdash; both from initial design
-              through to production.
+              down a document conversion. And at Talenvo, I built a health companion app end to
+              end on my own, and designed a collaborative content API &mdash; both from system
+              design through to delivery.
             </p>
             <p>
               What drives my work is a simple idea: the best infrastructure is the kind users
@@ -58,9 +58,9 @@ export default function About() {
               architecture decision.
             </p>
             <p>
-              Outside pure backend work, I have hands-on experience with Docker, WordPress,
-              Adobe Creative Suite, Blender, and FFmpeg. That range helps me understand the full
-              product, collaborate across teams, and make better technical calls.
+              I came to software from a background in agricultural science, and have since worked
+              across infrastructure, web platforms and media tooling &mdash; enough range to
+              understand a whole product rather than only my part of it.
             </p>
           </div>
         </div>

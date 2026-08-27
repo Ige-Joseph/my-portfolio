@@ -40,7 +40,7 @@ export default function Contact() {
         </div>
 
         <p className="section-subtitle contact__intro">
-          Whether you have a distributed systems problem, a backend to architect, or a
+          Whether you have a queueing or payments problem, a backend to architect, or a
           product to build &mdash; I&rsquo;d like to hear about it. I reply within 24 hours.
         </p>
 

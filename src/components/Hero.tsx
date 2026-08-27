@@ -8,11 +8,10 @@ import './Hero.css';
 // ============================================================
 
 const spec: { label: string; value: string }[] = [
-  { label: 'Discipline', value: 'Backend / Distributed Systems' },
-  { label: 'Current', value: 'Backend Engineer — Talenvo Residency' },
-  { label: 'Selection', value: 'Top 1% of 2,000+ participants' },
+  { label: 'Discipline', value: 'Async Systems & Payment Infrastructure' },
+  { label: 'Most recent', value: 'Backend Engineer — Talenvo Residency' },
   { label: 'Domains', value: 'Payments · Health · File processing' },
-  { label: 'Core stack', value: 'Python · FastAPI · Django · RabbitMQ · Postgres' },
+  { label: 'Core stack', value: 'Python · FastAPI · Django · Node.js · RabbitMQ / BullMQ · Postgres' },
   { label: 'Based', value: 'Lagos, Nigeria · Remote' },
 ];
 
@@ -49,7 +48,7 @@ export default function Hero() {
             <p className="hero__prose" data-reveal style={{ '--r': 5 } as React.CSSProperties}>
               When a product works smoothly — payments go through, files convert,
               notifications arrive on time — it&rsquo;s rarely an accident. I design and
-              build the backend infrastructure and distributed systems that make that
+              build the backend infrastructure and async systems that make that
               reliability possible, so users never have to think about what&rsquo;s
               running underneath.
             </p>

@@ -5,7 +5,6 @@ const breadth = [
   'Frontend',
   'Docker / Infra',
   'Product Design',
-  'Creative',
   'CMS / Web',
   'Architecture',
 ];
@@ -22,8 +21,9 @@ export default function Skills() {
         </div>
 
         <p className="section-subtitle skills__intro">
-          A T-shaped engineer &mdash; deep backend expertise, with enough product,
-          infrastructure and creative range to work across a whole team.
+          A T-shaped engineer &mdash; depth in backend, queueing and payment systems,
+          with enough infrastructure, web platform and tooling range to work across a
+          whole team.
         </p>
 
         {/* ---- Capability index ---- */}
@@ -63,7 +63,7 @@ export default function Skills() {
             <div className="tshape__depth">
               <h3 className="tshape__depth-title">Backend Engineering</h3>
               <p className="tshape__depth-sub">
-                Distributed Systems &middot; Payment Infrastructure &middot; API Design
+                Async Systems &middot; Payment Infrastructure &middot; API Design
               </p>
             </div>
           </div>
