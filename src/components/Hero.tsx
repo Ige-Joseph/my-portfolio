@@ -39,6 +39,22 @@ export default function Hero() {
         {/* ---- Statement + specification ---- */}
         <div className="hero__body">
 
+          {/* ---- Plate: the portrait, mounted like a document plate ---- */}
+          <figure className="hero__plate" data-reveal style={{ '--r': 4 } as React.CSSProperties}>
+            <div className="hero__plate-mount">
+              <div className="hero__plate-frame">
+                <img
+                  className="hero__plate-img"
+                  src="/joseph.jpg"
+                  alt="Joseph Ige"
+                  width={460}
+                  height={460}
+                />
+              </div>
+              <span className="hero__plate-marks" aria-hidden="true" />
+            </div>
+          </figure>
+
           <div className="hero__lead">
             <p className="hero__statement" data-reveal style={{ '--r': 4 } as React.CSSProperties}>
               I build the systems that make products{' '}
