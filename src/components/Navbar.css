@@ -15,6 +15,24 @@
 
 .navbar--scrolled { border-bottom-color: var(--rule); }
 
+/* Read position — the header's bottom edge doubles as a progress
+   rule. Fades in only once you've started reading. */
+.navbar__progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: var(--rule-heavy);
+  background: var(--accent);
+  transform-origin: left;
+  transform: scaleX(0);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.navbar--scrolled .navbar__progress { opacity: 1; }
+
 .navbar__inner {
   max-width: var(--container-max);
   margin: 0 auto;
