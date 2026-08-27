@@ -20,7 +20,7 @@ export interface Experience {
 export const experiences: Experience[] = [
   {
     id: 'talenvo-backend',
-    role: 'Backend Engineer',
+    role: 'Software Engineer',
     company: 'Talenvo',
     type: 'Residency',
     period: 'Feb — Jun 2026',

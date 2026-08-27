@@ -61,7 +61,7 @@ export default function Skills() {
             <div className="tshape__stem" aria-hidden="true" />
 
             <div className="tshape__depth">
-              <h3 className="tshape__depth-title">Backend Engineering</h3>
+              <h3 className="tshape__depth-title">Software Engineering</h3>
               <p className="tshape__depth-sub">
                 Async Systems &middot; Payment Infrastructure &middot; API Design
               </p>

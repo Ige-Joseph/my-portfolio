@@ -1,6 +1,6 @@
 # Joseph Ige — Portfolio
 
-A premium, dark-themed developer portfolio built with React, TypeScript, and Vite. Designed for backend engineers who want a cinematic, professional online presence with content that's trivially easy to update.
+A premium, dark-themed developer portfolio built with React, TypeScript, and Vite. Designed for software engineers who want a cinematic, professional online presence with content that's trivially easy to update.
 
 ---
 
@@ -32,7 +32,7 @@ A premium, dark-themed developer portfolio built with React, TypeScript, and Vit
 
 ## Project Overview
 
-This is a fully responsive, dark-themed portfolio for **Joseph Ige**, a Backend Engineer specialising in async systems and payment infrastructure.
+This is a fully responsive, dark-themed portfolio for **Joseph Ige**, a Software Engineer specialising in async systems and payment infrastructure.
 
 **Key features:**
 - Cinematic dark-mode design with glassmorphism cards and ambient glow effects
@@ -274,7 +274,7 @@ Add a new role above the existing ones (most recent first):
 ```ts
 {
   id: 'company-role-2025',
-  role: 'Senior Backend Engineer',
+  role: 'Senior Software Engineer',
   company: 'Acme Corp',
   companyUrl: 'https://acme.com',
   type: 'Full-time',

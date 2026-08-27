@@ -5,11 +5,11 @@
 
 export const site = {
   name: 'Joseph Ige',
-  title: 'Joseph Ige — Backend Engineer',
+  title: 'Joseph Ige — Software Engineer',
   description:
-    'T-shaped Backend Engineer specializing in async systems, payment infrastructure, scalable file processing, and scalable API design. Building systems that survive at scale.',
+    'T-shaped Software Engineer specializing in async systems, payment infrastructure, scalable file processing, and scalable API design. Building systems that survive at scale.',
   tagline: 'I build the systems that make products reliable.',
-  role: 'Backend Engineer',
+  role: 'Software Engineer',
   location: 'Lagos, Nigeria',
   availableForWork: true,
   availabilityNote: 'Open to full-time & contract roles',

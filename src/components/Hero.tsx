@@ -9,7 +9,7 @@ import './Hero.css';
 
 const spec: { label: string; value: string }[] = [
   { label: 'Discipline', value: 'Async Systems & Payment Infrastructure' },
-  { label: 'Most recent', value: 'Backend Engineer — Talenvo Residency' },
+  { label: 'Most recent', value: 'Software Engineer — Talenvo Residency' },
   { label: 'Domains', value: 'Payments · Health · File processing' },
   { label: 'Core stack', value: 'Python · FastAPI · Django · Node.js · RabbitMQ / BullMQ · Postgres' },
   { label: 'Based', value: 'Lagos, Nigeria · Remote' },
@@ -28,7 +28,7 @@ export default function Hero() {
             Joseph<span className="hero__name-break"> </span>Ige
           </h1>
           <div className="hero__masthead-meta" data-reveal style={{ '--r': 3 } as React.CSSProperties}>
-            <span className="meta">Backend Engineer</span>
+            <span className="meta">Software Engineer</span>
             <span className="hero__masthead-sep" aria-hidden="true" />
             <span className="meta">{site.location}</span>
           </div>
