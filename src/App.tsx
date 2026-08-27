@@ -3,6 +3,7 @@ import { useScrollReveal } from './hooks/useScrollReveal';
 import BlueprintBackground from './components/BlueprintBackground';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import Contents from './components/Contents';
 import About from './components/About';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
@@ -22,6 +23,7 @@ export default function App() {
 
       <main>
         <Hero />
+        <Contents />
         <About />
         <Projects />
         <Skills />

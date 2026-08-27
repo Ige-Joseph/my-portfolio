@@ -2,6 +2,12 @@
    ABOUT — profile block + numbered principles
    ============================================================ */
 
+/* Contents sits directly above, so §01 no longer needs the full
+   section lead-in — that space was the dead gap.
+   Doubled class: globals.css loads after this file, so a bare
+   `.about` would lose the cascade to `.section`'s padding. */
+.about.section { padding-top: clamp(40px, 5vw, 68px); }
+
 .about__body {
   border-top: var(--rule-hair) solid var(--rule);
   padding-top: 24px;
