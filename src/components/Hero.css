@@ -4,7 +4,9 @@
    ============================================================ */
 
 .hero {
-  padding-top: calc(var(--nav-height) + clamp(48px, 8vw, 96px));
+  /* --nav-height only clears the fixed navbar; the clamp is the
+     actual visible gap below it. */
+  padding-top: calc(var(--nav-height) + clamp(0px, 0.4vw, 6px));
   padding-bottom: clamp(36px, 4.5vw, 60px);
 }
 
@@ -20,6 +22,12 @@
 }
 
 .hero__name {
+  /* Cap-height trim. Archivo's ascender sits well above its cap
+     height, so at 148px roughly 40px of empty space sits between
+     the box top and the actual letters. The @supports block below
+     trims it exactly; this em value approximates it for browsers
+     that don't yet support text-box-trim (Firefox). */
+  margin-top: -0.24em;
   font-family: var(--font-sans);
   font-weight: 600;
   font-size: clamp(52px, 11vw, 148px);
@@ -403,3 +411,14 @@
   }
 }
 
+
+/* Where supported, let the browser trim to the real cap height
+   instead of approximating with a magic em value. Exact at every
+   size, and correct even if the typeface is ever swapped. */
+@supports (text-box-trim: trim-start) {
+  .hero__name {
+    text-box-trim: trim-start;
+    text-box-edge: cap alphabetic;
+    margin-top: 0;
+  }
+}
